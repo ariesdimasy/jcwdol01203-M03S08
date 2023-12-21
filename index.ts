@@ -1,10 +1,14 @@
 import express, { Application, Request, Response, } from "express"
 import bodyParser from "body-parser"
+import cors from "cors"
 import { getBranch, getBranchDetail, createBranch, updateBranch, deleteBranch, getBranchStats } from "./controllers/branchController"
 import userRoute from "./routes/userRoute"
 import postRoute from "./routes/postRoute"
 
+
 const app: Application = express()
+
+app.use(cors())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
